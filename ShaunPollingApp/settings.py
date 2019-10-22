@@ -25,12 +25,13 @@ SECRET_KEY = ')-kco@u=6oqe3^kn6pzef=ay=4v+5xi6d&3%f*$@(=cwh^2a_&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shaunpollingapptutorial.herokuapp.com']
+ALLOWED_HOSTS = ['shaunpollingapptutorial.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -115,8 +116,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static")
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
